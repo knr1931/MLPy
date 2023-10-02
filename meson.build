@@ -29,4 +29,6 @@ endif
 
 # Add default compile flags for any compiler that supports them.
 
+main_src = 'mlpy.cpp'
+executable('mlpy', main_src)
 subdir('mlpy')
