@@ -1,6 +1,6 @@
 project(
     'MLPy',
-    'c', 'cpp',
+    'c', 'cpp', 'cython',
     version: '1.0',
     license: 'CC0 1.0 Universal',
     default_options: [
@@ -14,6 +14,7 @@ project(
 
 cc = meson.get_compiler('c')
 cpp = meson.get_compiler('cpp')
+cy = meson.get_compiler('cython')
 
 # Check compiler is recent enough
 if cc.get_id() == 'gcc'
@@ -26,9 +27,20 @@ elif cc.get_id() == 'msvc'
           'when building with MSVC')
   endif
 endif
+if not cy.version().version_compare('>=3.0.2')
+  error('MLPy requires Cython >=3.0.2')
+endif
+
+pymod = import('python')
+py = pymod.find_installation('python3.11')
+pydep = py.dependency()
+
+if not cc.has_header('Python.h', dependencies: pydep)
+  error('Cannot compile `Python.h`. Perhaps you need to install python-dev|python-devel')
+else
+  message('INFO: Python.h header is included in the compiler')
+endif
 
 # Add default compile flags for any compiler that supports them.
 
-main_src = 'mlpy.cpp'
-executable('mlpy', main_src)
 subdir('mlpy')
