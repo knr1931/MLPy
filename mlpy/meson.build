@@ -1,2 +1,2 @@
-subdir(core)
-subdir(linalg)
+subdir('core')
+subdir('linalg')

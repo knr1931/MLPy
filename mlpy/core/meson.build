@@ -13,3 +13,4 @@ py.extension_module('linclassifier',
     install: true,
     subdir: 'mlpy/core',
 )
+

@@ -1,11 +1,7 @@
 installed_headers = [
-    'mlpy/classfier.h',
+    'mlpy/core/include/mlpy/classifier.h',
 ]
 
-py.install_sources(
-    installed_headers,
-    subdir: 'mlpy/core/include/mlpy'
-)
 
 py.install_sources(
     [
