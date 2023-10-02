@@ -1,2 +1,2 @@
-subdir(classifier)
+subdir(core)
 subdir(linalg)
