@@ -31,16 +31,7 @@ if not cy.version().version_compare('>=3.0.2')
   error('MLPy requires Cython >=3.0.2')
 endif
 
-pymod = import('python')
-py = pymod.find_installation('python3.11')
-pydep = py.dependency()
-
-if not cc.has_header('Python.h', dependencies: pydep)
-  error('Cannot compile `Python.h`. Perhaps you need to install python-dev|python-devel')
-else
-  message('INFO: Python.h header is included in the compiler')
-endif
-
 # Add default compile flags for any compiler that supports them.
+
 
 subdir('mlpy')

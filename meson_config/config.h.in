@@ -1,0 +1,2 @@
+#define MPYDATA_HELLO "@DATADIR@/hello.txt"
+#define MPYDATA_TRAININING_SET "@DATADIR@/train_data_set.csv"

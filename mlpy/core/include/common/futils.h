@@ -1,5 +1,5 @@
 /*
- * File: fileutils.h
+ * File: futils.h
  * Author: K Nitesh Reddy
  * Description: This file contains the interface for input opertions
  *              Copyright (c) 2023, K Nitesh Reddy
@@ -7,14 +7,6 @@
 #include <sstream>
 
 using namespace std;
-
-/**
-  * @brief gets absolute path
-  *
-  * @param file_name Input Data set file name.
-  * @return Returns abspath
-  */
-string get_abs_path(const char *file_name);
 
  /**
   * @brief Reads and parses the input data set
@@ -26,4 +18,4 @@ string get_abs_path(const char *file_name);
   * @param filePath Path for Input data file.
   * @return Returns 0 for success otherwise Error code 1
   */
-int parse_data_set(const string& filePath);
+int get_dataset(const string& filePath);

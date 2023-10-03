@@ -1,21 +1,19 @@
 src_common = [
-    'src/common/fileutils.cpp'
+    'src/common/futils.cpp'
 ]
 
 src_classifier = [
-    'src/classifier/processdata.cpp'
+
 ]
 
-py.extension_module('linclassifier',
+core_lib = shared_library('core',
     [
         src_common,
-        src_classifier,
     ],
     include_directories: [
         'include',
-        'src/common',
     ],
     install: true,
-    subdir: 'mlpy/core',
+    install_dir : join_paths(get_option('prefix'), 'lib'),
 )
 

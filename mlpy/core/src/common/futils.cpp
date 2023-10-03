@@ -1,5 +1,5 @@
 /*
- * File: fileutils.cpp
+ * File: futils.cpp
  * Author: K Nitesh Reddy
  * Description: This file contains the file input operations
  *              Copyright (c) 2023, K Nitesh Reddy
@@ -9,7 +9,7 @@
 #include <fstream>
 #include <filesystem>
 
-#include "fileutils.h"
+#include "common/futils.h"
 
 using namespace std;
 
@@ -21,9 +21,12 @@ get_abs_path(const char *file_name)
 }
 
 int
-parse_data_set(const string& filepath)
+get_dataset(const string& filepath)
 {
-	ifstream inputFile(filepath);
+    string abs_file_path = get_abs_path(filepath.c_str());
+    cout << "Absolute File Path: " << abs_file_path << endl;
+    
+	ifstream inputFile(abs_file_path);
 
     if (!inputFile.is_open()) {
         cerr << "Failed to open data file." << endl;
